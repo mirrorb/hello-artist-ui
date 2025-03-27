@@ -1,0 +1,89 @@
+/* src/components/ResultsList/ResultsList.css */
+.search-results-area h2 {
+  color: #555;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.4em;
+  text-align: center;
+}
+
+#resultsList {
+  min-height: 100px;
+  padding: 5px 0; /* Reduced padding as items have their own */
+  /* border: 1px dashed #ccc; */ /* For debugging */
+}
+
+/* Base result item styles */
+.result-item {
+  background-color: #ffffff; /* Slightly off-white */
+  padding: 15px 20px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #e8e8e8;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  position: relative; /* For label positioning */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.result-item:hover {
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Styles specific to result items */
+.result-item strong {
+  color: #1890ff;
+  display: block;
+  margin-bottom: 8px; /* More space after title */
+  font-size: 1.15em;
+  font-weight: 600; /* Slightly bolder */
+}
+
+.result-item p {
+  margin: 5px 0; /* Consistent vertical rhythm */
+  color: #555; /* Slightly darker text */
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+.result-item a {
+  color: #1677ff; /* Updated blue */
+  text-decoration: none;
+  font-size: 0.9em;
+  margin-top: 10px;
+  display: inline-block;
+  transition: color 0.2s;
+}
+.result-item a:hover {
+  color: #40a9ff;
+  text-decoration: underline;
+}
+
+/* Label to indicate item type */
+.item-type-label {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 0.7em;
+  font-weight: 500;
+  color: #888;
+  background-color: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Specific borders for visual distinction */
+.result-artist-item {
+  border-left: 4px solid #faad14; /* Amber/Yellow */
+}
+
+.result-character-item {
+  border-left: 4px solid #1890ff; /* Blue */
+}
+
+/* Adjust padding slightly due to the border */
+.result-artist-item,
+.result-character-item {
+  padding-left: 16px;
+}

@@ -1,0 +1,25 @@
+/* src/index.css */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit; /* Ensure consistent box sizing */
+}
+
+/* General loading/message styles (can be used by ResultsList) */
+.loading-indicator,
+.no-results {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+  font-style: italic;
+}
