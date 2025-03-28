@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import SearchBar from './components/SearchBar/SearchBar';
 import ResultsList from './components/ResultsList/ResultsList';
 import { ResultItemType } from './components/types';
-import * as artistApi from './api/artistAPi';
+import * as artistApi from './api/artistApi';
 import './App.css';
 
 // 添加过滤类型
