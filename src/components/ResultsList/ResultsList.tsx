@@ -1,4 +1,3 @@
-// src/components/ResultsList/ResultsList.tsx
 import './ResultsList.css';
 import { ResultItemType, isArtistItem } from '../types'; // Import types and guard
 
@@ -21,28 +20,26 @@ function ResultsList({ results, isLoading, searchAttempted }: ResultsListProps) 
       return <p className="no-results">未找到相关结果。</p>;
     }
 
-    // Map over results and render based on type
     return results.map((item) => {
-      // Use the type guard to render differently
       if (isArtistItem(item)) {
         return (
-          <div key={item.artist} className="result-item result-artist-item">
+          <div key={item.Artist} className="result-item result-artist-item">
             <span className="item-type-label">[Artist]</span>
-            <strong>{item.artist}</strong>
-            <p>触发词 (Trigger): {item.trigger}</p>
-            <p>计数 (Count): {item.count.toLocaleString()}</p>
-            <a href={item.url} target="_blank" rel="noopener noreferrer">查看详情 →</a>
+            <strong>{item.Artist}</strong>
+            <p>触发词 (Trigger): {item.Trigger}</p>
+            <p>计数 (Count): {item.Count.toLocaleString()}</p>
+            <a href={item.Url} target="_blank" rel="noopener noreferrer">查看详情 →</a>
           </div>
         );
       } else { // TypeScript knows this must be CharacterItem
         return (
-          <div key={item.character} className="result-item result-character-item">
+          <div key={item.Character} className="result-item result-character-item">
             <span className="item-type-label">[Character]</span>
-            <strong>{item.character}</strong> ({item.copyright})
-            <p>触发词 (Trigger): {item.trigger}</p>
-            <p>核心标签 (Core Tags): {item.coreTags}</p>
-            <p>计数 (Count): {item.count.toLocaleString()} (Solo: {item.soloCount.toLocaleString()})</p>
-            <a href={item.url} target="_blank" rel="noopener noreferrer">查看详情 →</a>
+            <strong>{item.Character}</strong> ({item.Copyright})
+            <p>触发词 (Trigger): {item.Trigger}</p>
+            <p>核心标签 (Core Tags): {item.CoreTags}</p>
+            <p>计数 (Count): {item.Count.toLocaleString()} (Solo: {item.SoloCount.toLocaleString()})</p>
+            <a href={item.Url} target="_blank" rel="noopener noreferrer">查看详情 →</a>
           </div>
         );
       }

@@ -21,7 +21,7 @@ function SearchBar({ searchTerm, onSearchTermChange, onSearch, disabled }: Searc
     <div className="search-input-area">
       <input
         type="text"
-        placeholder="输入艺术家或角色名..."
+        placeholder="输入画师或角色名..."
         value={searchTerm}
         onChange={onSearchTermChange}
         onKeyDown={handleKeyDown}
