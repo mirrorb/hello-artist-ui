@@ -1,6 +1,6 @@
 import { ResultItemType } from '../components/types';
 
-const API_URL = 'http://localhost:8081';
+const API_URL = 'http://example.com';
 
 export const searchByName = async (
   name: string, 
