@@ -18,11 +18,11 @@ export interface CharacterItem {
 export type ResultItemType = ArtistItem | CharacterItem
 
 export const isArtistItem = (item: ResultItemType): item is ArtistItem => {
-    return (item as ArtistItem).Artist !== undefined;
+    return !!(item as ArtistItem).Artist;
 }
 
 export const isCharacterItem = (item: ResultItemType): item is CharacterItem => {
-    return (item as CharacterItem).Character !== undefined;
+    return !!(item as CharacterItem).Character;
 }
 
 export interface SearchRequest {

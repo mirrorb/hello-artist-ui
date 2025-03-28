@@ -2,37 +2,78 @@
 import React from 'react';
 import './SearchBar.css';
 
+type FilterType = 'all' | 'artist' | 'character';
+
 interface SearchBarProps {
   searchTerm: string;
   onSearchTermChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onSearch: () => void;
-  disabled?: boolean;
+  disabled: boolean;
+  filterType: FilterType;
+  onFilterChange: (type: FilterType) => void;
 }
 
-function SearchBar({ searchTerm, onSearchTermChange, onSearch, disabled }: SearchBarProps) {
-
+const SearchBar: React.FC<SearchBarProps> = ({
+  searchTerm,
+  onSearchTermChange,
+  onSearch,
+  disabled,
+  filterType,
+  onFilterChange
+}) => {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter' && !disabled) { // Prevent submit if disabled
+    if (event.key === 'Enter') {
       onSearch();
     }
   };
 
   return (
-    <div className="search-input-area">
-      <input
-        type="text"
-        placeholder="输入画师或角色名..."
-        value={searchTerm}
-        onChange={onSearchTermChange}
-        onKeyDown={handleKeyDown}
-        disabled={disabled}
-        aria-label="Search query input" // Accessibility
-      />
-      <button onClick={onSearch} disabled={disabled}>
-        {disabled ? '查询中...' : '查询'}
-      </button>
+    <div className="search-bar-container">
+      <div className="search-input-area">
+        <input
+          type="text"
+          className="search-input"
+          placeholder="输入关键词..."
+          value={searchTerm}
+          onChange={onSearchTermChange}
+          onKeyDown={handleKeyDown}
+          disabled={disabled}
+        />
+        <button 
+          onClick={onSearch}
+          disabled={disabled}
+        >
+          {disabled ? '搜索中...' : '搜索'}
+        </button>
+      </div>
+      
+      <div className="filter-options">
+        <div className="filter-buttons">
+          <button 
+            className={`filter-button ${filterType === 'all' ? 'active' : ''}`}
+            onClick={() => onFilterChange('all')}
+            disabled={disabled}
+          >
+            全部
+          </button>
+          <button 
+            className={`filter-button ${filterType === 'artist' ? 'active' : ''}`}
+            onClick={() => onFilterChange('artist')}
+            disabled={disabled}
+          >
+            画师
+          </button>
+          <button 
+            className={`filter-button ${filterType === 'character' ? 'active' : ''}`}
+            onClick={() => onFilterChange('character')}
+            disabled={disabled}
+          >
+            角色
+          </button>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default SearchBar;
